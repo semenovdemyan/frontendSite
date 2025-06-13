@@ -1,0 +1,82 @@
+.btn {
+  margin: 20px;
+  color: var(--color2);
+  padding: 7px 0;
+  border: none;
+  background-color: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color2);
+  border-radius: 35px;
+}
+
+.btn:hover {
+  transform: scale(1.25);
+  box-shadow: 5px 2px 2px 2px var(--color2);
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 1.5em;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0s;
+  font-size: inherit;
+  color: inherit;
+}
+
+.slider__track {
+  display: flex;
+  white-space: nowrap;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  opacity: 0;
+  z-index: 1;
+  will-change: transform;
+}
+
+.slider__item {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+  padding: 0 1rem;
+}
+
+.btn:hover .slider__track {
+  opacity: 1;
+  animation: scrollLoop 6s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+
+.btn:hover .slider__label {
+  opacity: 0;
+}
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0) translateY(-50%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

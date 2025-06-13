@@ -1,0 +1,41 @@
+.langToggle {
+  position: absolute;
+  right: 40px;
+  flex-direction: column;
+  padding: 14px 0;
+  line-height: normal;
+}
+@media (max-width: 1024px) {
+  .langToggle {
+    right: 0;
+  }
+}
+@media (max-width: 767px) {
+  .langToggle {
+    padding: 0;
+    right: 0;
+  }
+}
+
+.langToggle button {
+  width: 70px;
+  padding: 4px 15px 3px;
+  font-weight: 600;
+  line-height: 0.8;
+  text-align: center;
+  cursor: pointer;
+  color: var(--color1);
+  background-color: var(--color2);
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.4s;
+}
+
+.langToggle button p {
+  font-size: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+.langToggle button:active {
+  background-color: var(--color2-active);
+}
