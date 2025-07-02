@@ -21,32 +21,31 @@ export const Button: React.FC<ButtonProps> = ({
   repeatLabelCount = 6,
 }) => {
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={`${styles.btn} ${className}`}
-    >
-      {icon && <span className={styles.icon}>icon</span>}
+    <div className={styles.btnWrapper}>
+      <button
+        type={type}
+        onClick={onClick}
+        className={`${styles.btn} ${className}`}
+      >
+        {icon && <span className={styles.icon}>icon</span>}
 
-      {children ? (
-        children
-      ) : label ? (
-        <div className={styles.slider}>
-          {/* Статичный label по центру */}
-          <div className={styles.slider__label}>{label}</div>
-
-          {/* Скрытая дорожка, появляется при hover */}
-          <div className={styles.slider__track} aria-hidden="true">
-            {Array(repeatLabelCount * 2)
-              .fill(label)
-              .map((text, i) => (
-                <span key={i} className={styles.slider__item}>
-                  {text}
-                </span>
-              ))}
+        {children ? (
+          children
+        ) : label ? (
+          <div className={styles.slider}>
+            <div className={styles.slider__label}>{label}</div>
+            <div className={styles.slider__track} aria-hidden="true">
+              {Array(repeatLabelCount * 2)
+                .fill(label)
+                .map((text, i) => (
+                  <span key={i} className={styles.slider__item}>
+                    {text}
+                  </span>
+                ))}
+            </div>
           </div>
-        </div>
-      ) : null}
-    </button>
+        ) : null}
+      </button>
+    </div>
   )
 }

@@ -8,6 +8,11 @@
   --color3-active: #92d896c7;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html {
   background-color: var(--color1);
 }
@@ -19,7 +24,7 @@ html {
 }
 
 .app__wrapper {
-  width: 100%;
+  width: 100vw;
   max-height: 100vh;
   overflow: hidden;
 }
