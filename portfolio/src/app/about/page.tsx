@@ -1,4 +1,3 @@
-// import Start from './page'
 import { Cube } from '../../components/Cube/Cube'
 export default function Page() {
   return (

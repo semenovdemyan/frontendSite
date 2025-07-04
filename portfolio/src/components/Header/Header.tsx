@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, useState, useEffect } from 'react';
 import { Button } from '../Button/Button';
 import styles from './Header.module.css';

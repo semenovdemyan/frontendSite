@@ -1,11 +1,11 @@
+import { Cube } from '@/components/Cube/Cube'
 import Link from 'next/link'
-import { CubeClientWrapper } from '../components/CubeClientWrapper/CubeClientWrapper'
-import { Button } from '../components/Button/Button'
+import { Button } from '@/components/Button/Button'
 
 export default function Page() {
   return (
     <>
-      <CubeClientWrapper />
+      <Cube />
       <Link href="/skills">
         <Button label="BUTTON" repeatLabelCount={9} />
       </Link>

@@ -1,4 +1,5 @@
 'use client'
+
 import './Cube.scss'
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'

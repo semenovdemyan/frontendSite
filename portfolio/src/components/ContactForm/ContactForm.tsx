@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import styles from './ContactForm.module.css';
 import { Button } from '../Button/Button'; // Убедитесь, что Button импортируется корректно

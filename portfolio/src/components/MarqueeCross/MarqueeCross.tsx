@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef } from 'react';
 import styles from './MarqueeCross.module.scss';
 
@@ -29,8 +31,12 @@ const MarqueeCross: React.FC = () => {
     marquee1.style.width = `${totalWidth}px`;
     marquee2.style.width = `${totalWidth}px`;
 
-    marquee1.style.animation = `marqueeScrollReverse ${5 * (blockWidth / window.innerWidth)}s linear infinite`;
-    marquee2.style.animation = `marqueeScroll ${5 * 1.1 * (blockWidth / window.innerWidth)}s linear infinite`;
+    marquee1.style.animation = `marqueeScrollReverse ${
+      5 * (blockWidth / window.innerWidth)
+    }s linear infinite`;
+    marquee2.style.animation = `marqueeScroll ${
+      5 * 1.1 * (blockWidth / window.innerWidth)
+    }s linear infinite`;
   };
 
   useEffect(() => {
@@ -42,10 +48,16 @@ const MarqueeCross: React.FC = () => {
   return (
     <div className={styles.mainContainer}>
       <div className={`${styles.marqueeContainer} ${styles.marqueeContainer1}`}>
-        <div className={`${styles.marquee} ${styles.marquee1}`} ref={marquee1Ref} />
+        <div
+          className={`${styles.marquee} ${styles.marquee1}`}
+          ref={marquee1Ref}
+        />
       </div>
       <div className={`${styles.marqueeContainer} ${styles.marqueeContainer2}`}>
-        <div className={`${styles.marquee} ${styles.marquee2}`} ref={marquee2Ref} />
+        <div
+          className={`${styles.marquee} ${styles.marquee2}`}
+          ref={marquee2Ref}
+        />
       </div>
     </div>
   );

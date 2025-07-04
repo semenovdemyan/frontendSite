@@ -1,3 +1,4 @@
+'use client'
 import { FC, useRef, useEffect } from 'react';
 import { Start } from '../../Pages/PageStart/Start';
 import { Me } from '../../Pages/PageMe/Me';
