@@ -1,0 +1,81 @@
+.mainContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.marqueeContainer {
+  position: relative;
+  width: 200vmax;
+  height: 200vmax;
+  overflow: hidden;
+}
+
+.marqueeContainer1 {
+  position: fixed;
+  width: 120%;
+  translate: 0 150px;
+  transform: rotate(-15deg);
+  z-index: 0;
+}
+
+.marqueeContainer2 {
+  position: fixed;
+  width: 120%;
+  transform: rotate(15deg);
+  z-index: 1;
+}
+
+.marquee {
+  display: flex;
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 0;
+
+  span {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+}
+
+.marquee1 {
+  background-color: #00ff26;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.marquee2 {
+  background-color: #00e5ff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marqueeScrollReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
