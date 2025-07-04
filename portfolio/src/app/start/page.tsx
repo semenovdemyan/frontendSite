@@ -1,10 +1,5 @@
-// import Start from './page'
-// import { Cube } from '../../components/Cube/Cube'
+import { FlipCardGrid } from '../../components/FlipCardGrid/FlipCardGrid'
+
 export default function Page() {
-  return (
-    <>
-      <p>START</p>
-      {/* <Cube></Cube> */}
-    </>
-  )
+  return <FlipCardGrid></FlipCardGrid>
 }
