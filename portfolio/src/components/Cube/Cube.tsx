@@ -1,87 +1,72 @@
 'use client'
-
 import './Cube.scss'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from '../../store/store'
-import { setRotation, setPosition, setAnimating } from '../../store/cubeSlice'
 
 export const Cube: React.FC = () => {
   const cubeRef = useRef<HTMLDivElement>(null)
-  const dispatch = useDispatch<AppDispatch>()
-
-  const { rotationX, rotationY, rotationZ, positionX, positionY, isAnimating } =
-    useSelector((state: RootState) => state.cube)
+  const [isInitialAnimationDone, setIsInitialAnimationDone] = useState(false)
 
   useEffect(() => {
-    if (cubeRef.current && !isAnimating) {
-      dispatch(setAnimating(true))
+    const cubeElement = cubeRef.current
 
-      gsap.set(cubeRef.current, {
+    if (cubeElement) {
+      // Начальная позиция в правом нижнем углу
+      gsap.set(cubeElement, {
         x: window.innerWidth - 200,
         y: window.innerHeight - 200,
         rotationZ: 25,
       })
 
-      const initialAnimation = gsap.to(cubeRef.current, {
-        x: window.innerWidth / 2 - 100,
+      // Анимация через секунду, когда куб подплывает к курсору
+      const initialAnimation = gsap.to(cubeElement, {
+        x: window.innerWidth / 2 - 100, // Позиция куба на 100px от центра
         y: window.innerHeight / 2 - 100,
         duration: 1,
         ease: 'power2.out',
-        onComplete: () => {
-          dispatch(setAnimating(false))
-        },
+        onComplete: () => setIsInitialAnimationDone(true), // После анимации запускаем основную логику
       })
 
+      // Отменяем анимацию, если компонент размонтирован
       return () => {
         initialAnimation.kill()
       }
     }
-  }, [dispatch, isAnimating])
+  }, []) // Эта анимация выполняется только один раз после монтирования
 
   useEffect(() => {
-    if (!isAnimating) {
+    if (isInitialAnimationDone) {
+      // Обработчик движения мыши для обычной логики вращения
       const handleMouseMove = (event: MouseEvent) => {
-        const { innerWidth, innerHeight } = window
-        const { clientX, clientY } = event
+        if (cubeRef.current) {
+          const { innerWidth, innerHeight } = window
+          const { clientX, clientY } = event
 
-        const xOffset = (clientX - innerWidth / 2) / innerWidth
-        const yOffset = (clientY - innerHeight / 2) / innerHeight
+          // Определяем положение мыши по отношению к центру экрана
+          const xOffset = (clientX - innerWidth / 2) / innerWidth
+          const yOffset = (clientY - innerHeight / 2) / innerHeight
 
-        dispatch(
-          setRotation({
-            x: yOffset * 145,
-            y: xOffset * 145,
-            z: 25,
-          })
-        )
-        dispatch(
-          setPosition({
+          // Расчёт смещения куба на основе положения мыши
+          gsap.to(cubeRef.current, {
             x: -xOffset * 270,
             y: -yOffset * 270,
+            rotationX: yOffset * 145,
+            rotationY: xOffset * 145,
+            duration: 1.6,
+            ease: 'power2.out',
           })
-        )
+        }
       }
 
+      // Добавляем событие для отслеживания движения мыши
       window.addEventListener('mousemove', handleMouseMove)
-      return () => window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [dispatch, isAnimating])
 
-  useEffect(() => {
-    if (cubeRef.current) {
-      gsap.to(cubeRef.current, {
-        x: positionX,
-        y: positionY,
-        rotationX: rotationX,
-        rotationY: rotationY,
-        rotationZ: rotationZ,
-        duration: 1.6,
-        ease: 'power2.out',
-      })
+      // Убираем событие при размонтировании компонента
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove)
+      }
     }
-  }, [positionX, positionY, rotationX, rotationY, rotationZ])
+  }, [isInitialAnimationDone]) // Следим только за изменением флага состояния
 
   return (
     <div className="scene">

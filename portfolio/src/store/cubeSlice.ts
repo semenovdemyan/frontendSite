@@ -26,15 +26,18 @@ const cubeSlice = createSlice({
       state,
       action: PayloadAction<{ x: number; y: number; z: number }>
     ) {
+      console.log('setRotation', action.payload)
       state.rotationX = action.payload.x
       state.rotationY = action.payload.y
       state.rotationZ = action.payload.z
     },
     setPosition(state, action: PayloadAction<{ x: number; y: number }>) {
+      console.log('setPosition', action.payload)
       state.positionX = action.payload.x
       state.positionY = action.payload.y
     },
     setAnimating(state, action: PayloadAction<boolean>) {
+      console.log('setAnimating', action.payload)
       state.isAnimating = action.payload
     },
   },

@@ -2,10 +2,12 @@
 
 import styles from './Button.module.scss'
 import React, { ReactNode } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface ButtonProps {
   label?: string
   onClick?: () => void
+  href?: string
   type?: 'button' | 'submit'
   className?: string
   icon?: boolean
@@ -16,17 +18,25 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
+  href,
   type = 'button',
   className = '',
   icon = false,
   children,
   repeatLabelCount = 6,
 }) => {
+  const router = useRouter()
+
+  const handleClick = () => {
+    if (onClick) onClick()
+    if (href) router.push(href)
+  }
+
   return (
     <div className={styles.btnWrapper}>
       <button
         type={type}
-        onClick={onClick}
+        onClick={handleClick}
         className={`${styles.btn} ${className}`}
       >
         {icon && <span className={styles.icon}>icon</span>}
