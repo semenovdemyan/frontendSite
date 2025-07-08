@@ -3,5 +3,5 @@ export default function Page() {
     <>
       <p style={{ color: '#FFF', fontSize: '60px' }}>TEST</p>
     </>
-  )
+  );
 }

@@ -1,10 +1,11 @@
-import { Slider } from '@/components/Slider/Slider'
-// import { Cube } from '../../components/Cube/Cube'
+'use client';
+
+import data from './data.json';
+import { Slider } from '@/components/Slider/Slider';
+import { useImagePreloader } from '@/hooks/useImagePreloader';
+
 export default function Page() {
-  return (
-    <>
-      <Slider />
-      {/* <Cube></Cube> */}
-    </>
-  )
+  const loaded = useImagePreloader(data.images);
+
+  return loaded ? <Slider images={data.images} /> : null;
 }

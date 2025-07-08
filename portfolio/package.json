@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "TURBOPACK=0 next dev",
+    "dev2": "next dev --turbopack",
     "build": "tsc -b && next build",
     "start": "next start",
     "lint": "next lint",
@@ -24,12 +25,16 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
     "cssnano": "^7.0.7",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "null-loader": "^4.0.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^10.2.4",
     "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
     "typescript": "^5"
   }
 }
