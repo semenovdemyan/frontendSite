@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Titan+One');
+
+.ABcontainer {
+  position: relative;
+  width: 100vw;
+  height: 320px;
+  overflow: hidden;
+}
+
+.svgMask {
+  overflow: hidden;
+  position: absolute;
+  top: -4px;
+  width: 101vw;
+  height: 328px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bg {
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(30deg, #ff008c, #c8ff00);
+  z-index: 1;
+}
+
+.blobsContainer {
+  overflow: hidden;
+  position: absolute;
+  // top: 30px;
+  width: 100%;
+  height: 318px;
+  z-index: 2;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Titan One', cursive;
+  font-size: 10rem;
+}
+
+@for $i from 1 through 7 {
+  .blobs_#{$i} {
+    animation: blobs 20s ease-in-out infinite alternate;
+    position: absolute;
+  }
+}
+
+.blobs_1 {
+  background: #a200ff;
+  width: 70px;
+  height: 90px;
+  top: 130px;
+  left: 13.6%;
+  transform: rotate(45deg);
+}
+
+.blobs_2 {
+  background: #ff4500;
+  width: 80px;
+  height: 80px;
+  top: 100px;
+  left: 28%;
+}
+
+.blobs_3 {
+  background: #1dad00;
+  width: 60px;
+  height: 90px;
+  top: 135px;
+  left: 6%;
+}
+
+.blobs_4 {
+  background: #ff0000;
+  width: 80px;
+  height: 90px;
+  top: 106px;
+  left: 19%;
+}
+
+.blobs_5 {
+  background: #ffff00d2;
+  width: 70px;
+  height: 60px;
+  top: 110px;
+  left: 10%;
+}
+
+.blobs_6 {
+  background: #00ffff;
+  width: 60px;
+  height: 60px;
+  top: 220px;
+  left: 50%;
+}
+
+.blobs_7 {
+  background: #01bda4a1;
+  width: 80px;
+  height: 60px;
+  top: 100px;
+  left: 15%;
+}
+
+@keyframes blobs {
+  0% {
+    border-radius: 46% 74% 61% 39% / 54% 67% 33% 46%;
+  }
+  10% {
+    border-radius: 74% 26% 47% 53% / 68% 46% 54% 32%;
+  }
+  20% {
+    border-radius: 48% 52% 30% 70% / 27% 37% 63% 73%;
+  }
+  30% {
+    border-radius: 73% 27% 57% 43% / 28% 67% 33% 72%;
+  }
+  40% {
+    border-radius: 63% 37% 56% 44% / 25% 28% 72% 75%;
+  }
+  50% {
+    border-radius: 59% 61% 70% 30% / 61% 29% 71% 39%;
+  }
+  60% {
+    border-radius: 87% 73% 29% 71% / 73% 51% 49% 27%;
+  }
+  70% {
+    border-radius: 69% 61% 65% 35% / 74% 65% 35% 26%;
+  }
+  80% {
+    border-radius: 55% 45% 37% 63% / 38% 30% 70% 62%;
+  }
+  90% {
+    border-radius: 15% 75% 70% 30% / 39% 50% 50% 61%;
+  }
+  100% {
+    border-radius: 66% 34% 33% 67% / 65% 73% 27% 35%;
+  }
+}
