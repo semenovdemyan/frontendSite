@@ -1,25 +1,25 @@
-import React from 'react'
-import styles from './FlipCardGrid.module.scss'
+import React from 'react';
+import styles from './FlipCardGrid.module.scss';
 
 interface CardData {
-  id: number
-  imageUrl: string
-  link: string
-  description: string
+  id: number;
+  imageUrl: string;
+  link: string;
+  description: string;
 }
 
 const cards: CardData[] = [
   {
     id: 1,
     imageUrl:
-      'https://i.pinimg.com/originals/e8/82/67/e88267a222de3b152d6aced055fc84a7.jpg',
+      '../../../public/fav.svg',
     link: 'https://example.com',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 2,
     imageUrl:
-      'https://i.pinimg.com/originals/e8/82/67/e88267a222de3b152d6aced055fc84a7.jpg',
+      '../../../public/vercel.svg',
     link: 'https://example.com',
     description:
       'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -66,7 +66,7 @@ const cards: CardData[] = [
     link: 'https://example.com',
     description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
   },
-]
+];
 
 export const FlipCardGrid: React.FC = () => {
   return (
@@ -80,13 +80,17 @@ export const FlipCardGrid: React.FC = () => {
             ></div>
             <div className={styles.flipCardBack}>
               <a href={card.link} target="_blank" rel="noopener noreferrer">
-                Visit Link
+                Preview
               </a>
+              <a href={card.link} target="_blank" rel="noopener noreferrer">
+                Repository
+              </a>
+
               <p>{card.description}</p>
             </div>
           </div>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};

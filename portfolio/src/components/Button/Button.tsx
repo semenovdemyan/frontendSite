@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   href,
   type = 'button',
-  className = '',
+  // className = '',
   icon = false,
   children,
   repeatLabelCount = 6,
@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
       <button
         type={type}
         onClick={handleClick}
-        className={`${styles.btn} ${className}`}
+        className={styles.btn}
       >
         {icon && <span className={styles.icon}>icon</span>}
 
