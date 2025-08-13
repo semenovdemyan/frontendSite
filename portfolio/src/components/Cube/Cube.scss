@@ -1,7 +1,3 @@
-$face-count: 6;
-$translate-z: 66px;
-$cube-size: 100px;
-
 .scene {
   pointer-events: none;
   position: fixed;
@@ -9,55 +5,56 @@ $cube-size: 100px;
   left: 50%;
   transform: translate(-50%, -50%);
   perspective: 3200px;
-  width: 700px;
-  height: 500px;
+  width: 50vw;
+  height: 100vh;
 
   @media screen and (max-width: 450px) {
     display: none;
   }
-}
 
-.cube {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform: rotateX(15deg) rotateY(15deg);
-
-  &__face {
-    position: absolute;
-    width: $cube-size;
-    height: $cube-size;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    box-shadow: 0 0 10px 10px var(--color2);
-    border-radius: 8px;
-
-    @for $i from 1 through $face-count {
-      &--#{$i} {
-        @if $i == 1 {
-          transform: rotateY(0deg) translateZ($translate-z);
-        } @else if $i == 2 {
-          transform: rotateY(90deg) translateZ($translate-z);
-        } @else if $i == 3 {
-          transform: rotateY(180deg) translateZ($translate-z);
-        } @else if $i == 4 {
-          transform: rotateY(-90deg) translateZ($translate-z);
-        } @else if $i == 5 {
-          transform: rotateX(90deg) translateZ($translate-z);
-        } @else if $i == 6 {
-          transform: rotateX(-90deg) translateZ($translate-z);
-        }
-      }
-    }
-  }
-
-  &__square {
+  .cube {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: var(--color1);
-    border: 2px solid var(--color2);
-    border-radius: 5px;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(15deg);
+
+    &__face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      box-shadow: 0 0 10px 10px var(--color2);
+      border-radius: 8px;
+
+      &--1 {
+        transform: rotateY(0deg) translateZ(66px);
+      }
+      &--2 {
+        transform: rotateY(90deg) translateZ(66px);
+      }
+      &--3 {
+        transform: rotateY(180deg) translateZ(66px);
+      }
+      &--4 {
+        transform: rotateY(-90deg) translateZ(66px);
+      }
+      &--5 {
+        transform: rotateX(90deg) translateZ(66px);
+      }
+      &--6 {
+        transform: rotateX(-90deg) translateZ(66px);
+      }
+    }
+
+    &__square {
+      width: 100%;
+      height: 100%;
+      background: var(--color1);
+      border: 2px solid var(--color2);
+      border-radius: 5px;
+    }
   }
 }

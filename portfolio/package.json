@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "TURBOPACK=0 next dev",
-    "dev2": "next dev --turbopack",
+    "dev": "next dev --turbopack",
     "build": "tsc -b && next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,12 +11,10 @@
     "open-github-pages": "npx open-cli https://semenovdemyan.github.io/semenoff.dev/"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.8.2",
     "gsap": "^3.13.0",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-redux": "^9.2.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

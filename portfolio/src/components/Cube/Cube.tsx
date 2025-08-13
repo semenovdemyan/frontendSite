@@ -66,7 +66,7 @@ export const Cube: React.FC = () => {
         window.removeEventListener('mousemove', handleMouseMove)
       }
     }
-  }, [isInitialAnimationDone]) // Следим только за изменением флага состояния
+  }, [isInitialAnimationDone]) // Следим только за завершением начальной анимации
 
   return (
     <div className="scene">
