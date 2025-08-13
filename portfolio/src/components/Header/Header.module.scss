@@ -1,6 +1,5 @@
 /* Основные стили */
 .header__container {
-  /* Не используется (нет элемента с этим классом) */
   // color: var(--color2);
   // display: flex;
   // flex-direction: column;
@@ -10,22 +9,7 @@
   // position: relative;
 }
 
-.header__toggle {
-  /* Не используется (нет элемента с этим классом) */
-  // position: absolute;
-  // right: 70px;
-}
-
-.header__btns {
-  /* Не используется (вместо него используется <nav> напрямую) */
-  // display: flex;
-  // justify-content: center;
-  // width: 100%;
-  // position: fixed;
-  // color: var(--color2);
-}
-
-/* Бургер-меню (полностью не используется, так как нет бургер-кнопки) */
+/* Бургер-меню */
 // .header__burger {
 //   margin: 0 0 0 5px;
 //   display: flex;
@@ -68,52 +52,19 @@
 //   bottom: 9px;
 // }
 
-nav {
+.nav {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 @media (max-width: 768px) {
-  // .header__btns {
-  //   align-items: left;
-  //   justify-content: flex-start;
-  //   transition: background-color 0.2s ease-in-out,
-  //     backdrop-filter 0.2s ease-in-out;
-  //   flex-direction: column;
-  //   gap: 25px;
-  //   padding-left: 100px;
-  //   justify-content: left;
-  //   padding: 45px 0 0 50px;
-  //   align-items: flex-start;
-  //   height: 120vh;
-  //   top: -20px;
-  // }
-
   // .header__btns--open {
   //   backdrop-filter: blur(20px);
   //   background-color: rgba(183, 255, 225, 0.2);
-  // }
-
-  // .header__btns nav {
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  //   margin-left: 5px;
-  //   height: 100vh;
-  //   justify-content: flex-start;
-  //   color: var(--color1);
-  // }
-
-  nav {
-    position: relative;
-    padding: 25px;
-    top: -25px;
-    left: -25px;
-    height: 100%;
-  }
-
-  // .header__toggle {
-  //   right: 55px;
   // }
 }
 
@@ -122,8 +73,4 @@ nav {
   //   display: none;
   //   z-index: 10000;
   // }
-
-  .nav {
-    display: block;
-  }
 }
