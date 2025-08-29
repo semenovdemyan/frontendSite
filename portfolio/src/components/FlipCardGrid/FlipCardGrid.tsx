@@ -80,8 +80,12 @@ export const FlipCardGrid: React.FC = () => {
             ></div>
             <div className={styles.flipCardBack}>
               <a href={card.link} target="_blank" rel="noopener noreferrer">
-                Visit Link
+                Preview
               </a>
+              <a href={card.link} target="_blank" rel="noopener noreferrer">
+                Repository
+              </a>
+
               <p>{card.description}</p>
             </div>
           </div>

@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 import { FC } from 'react'
 import { Button } from '../Button/Button'
-import './Header.module.scss'
+import styles from './Header.module.scss'
 
 export const Header: FC = () => {
   return (
     <>
-      <header>
-        <nav className="nav">
+      <header className={styles.header}>
+        <nav className={styles.header__nav}>
           <Button label="ME" repeatLabelCount={9} href="/about" />
           <Button label="MY WORKS" repeatLabelCount={9} href="/works" />
           <Button label="MY SKILLS" repeatLabelCount={9} href="/skills" />
