@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-
+import { Cube } from '@/components/Cube/Cube'
+import { Header } from '@/components/Header/Header'
 export const metadata: Metadata = {
   title: 'Web-developer Portfolio',
   description: 'Portfolio of a web developer showcasing skills and projects',
@@ -13,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <Cube />
+        {children}
+      </body>
     </html>
   )
 }

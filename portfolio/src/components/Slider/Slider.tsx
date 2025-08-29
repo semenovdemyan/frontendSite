@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
-import React, { useEffect, useRef, useCallback } from 'react';
-import styles from './Slider.module.scss';
+import React, { useEffect, useRef, useCallback } from 'react'
+import styles from './Slider.module.scss'
 
 interface SliderProps {
-  images: string[];
+  images: string[]
 }
 
 const slidesData = [
@@ -27,90 +27,90 @@ const slidesData = [
     title: 'Automated Customer Service',
     subtitle: 'Love, death & robots',
     bgGradient: 'linear-gradient(220.16deg, #ffe101 -8%, #f39102 138%)',
-  }
-];
+  },
+]
 
 export const Slider: React.FC<SliderProps> = ({ images }) => {
-  const sidebarRef = useRef<HTMLDivElement>(null);
-  const mainSlideRef = useRef<HTMLDivElement>(null);
-  const slidesCount = images.length;
-  const activeIndexRef = useRef(0);
-  const isAnimatingRef = useRef(false);
-  const touchStartYRef = useRef(0);
-  const lastDirectionRef = useRef<'up' | 'down' | null>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null)
+  const mainSlideRef = useRef<HTMLDivElement>(null)
+  const slidesCount = images.length
+  const activeIndexRef = useRef(0)
+  const isAnimatingRef = useRef(false)
+  const touchStartYRef = useRef(0)
+  const lastDirectionRef = useRef<'up' | 'down' | null>(null)
 
   useEffect(() => {
     if (sidebarRef.current)
-      sidebarRef.current.style.top = `-${(slidesCount - 1) * 100}vh`;
-  }, [slidesCount]);
+      sidebarRef.current.style.top = `-${(slidesCount - 1) * 100}vh`
+  }, [slidesCount])
 
   const changeSlide = useCallback(
     (direction: 'up' | 'down') => {
-      if (isAnimatingRef.current) return;
-      isAnimatingRef.current = true;
-      lastDirectionRef.current = direction;
+      if (isAnimatingRef.current) return
+      isAnimatingRef.current = true
+      lastDirectionRef.current = direction
 
       activeIndexRef.current =
         direction === 'down'
           ? (activeIndexRef.current + 1) % slidesCount
-          : (activeIndexRef.current - 1 + slidesCount) % slidesCount;
+          : (activeIndexRef.current - 1 + slidesCount) % slidesCount
 
       if (mainSlideRef.current)
         mainSlideRef.current.style.transform = `translateY(-${
           activeIndexRef.current * 100
-        }vh)`;
+        }vh)`
       if (sidebarRef.current)
         sidebarRef.current.style.transform = `translateY(${
           activeIndexRef.current * 100
-        }vh)`;
+        }vh)`
 
       setTimeout(() => {
-        isAnimatingRef.current = false;
-        lastDirectionRef.current = null;
-      }, 600);
+        isAnimatingRef.current = false
+        lastDirectionRef.current = null
+      }, 600)
     },
     [slidesCount]
-  );
+  )
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp') changeSlide('up');
-      else if (e.key === 'ArrowDown') changeSlide('down');
-    };
+      if (e.key === 'ArrowUp') changeSlide('up')
+      else if (e.key === 'ArrowDown') changeSlide('down')
+    }
 
     const onTouchStart = (e: TouchEvent) => {
-      touchStartYRef.current = e.touches[0].clientY;
-    };
+      touchStartYRef.current = e.touches[0].clientY
+    }
 
     const onTouchEnd = (e: TouchEvent) => {
-      const diff = touchStartYRef.current - e.changedTouches[0].clientY;
-      if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 'down' : 'up');
-    };
+      const diff = touchStartYRef.current - e.changedTouches[0].clientY
+      if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 'down' : 'up')
+    }
 
     const onWheel = (e: WheelEvent) => {
-      if (isAnimatingRef.current) return;
+      if (isAnimatingRef.current) return
 
-      const direction = e.deltaY > 0 ? 'down' : 'up';
+      const direction = e.deltaY > 0 ? 'down' : 'up'
 
-      if (lastDirectionRef.current === direction) return;
+      if (lastDirectionRef.current === direction) return
 
       if (Math.abs(e.deltaY) > 40) {
-        changeSlide(direction);
+        changeSlide(direction)
       }
-    };
+    }
 
-    window.addEventListener('keydown', onKeyDown);
-    window.addEventListener('touchstart', onTouchStart, { passive: true });
-    window.addEventListener('touchend', onTouchEnd, { passive: true });
-    window.addEventListener('wheel', onWheel, { passive: true });
+    window.addEventListener('keydown', onKeyDown)
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
+    window.addEventListener('wheel', onWheel, { passive: true })
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown);
-      window.removeEventListener('touchstart', onTouchStart);
-      window.removeEventListener('touchend', onTouchEnd);
-      window.removeEventListener('wheel', onWheel);
-    };
-  }, [changeSlide]);
+      window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('wheel', onWheel)
+    }
+  }, [changeSlide])
 
   return (
     <div className={styles.container}>
@@ -137,5 +137,5 @@ export const Slider: React.FC<SliderProps> = ({ images }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

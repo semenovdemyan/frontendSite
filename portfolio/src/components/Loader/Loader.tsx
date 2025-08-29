@@ -1,8 +1,6 @@
-import styles from './Loader.module.scss';
+import styles from './Loader.module.scss'
 
 export const Loader: React.FC = () => {
-  console.log(styles);
-  
   return (
     <div className={styles.loader}>
       <div className={styles.overlay}>
@@ -27,5 +25,5 @@ export const Loader: React.FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

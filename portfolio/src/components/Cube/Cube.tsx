@@ -2,10 +2,13 @@
 import './Cube.scss'
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { useScreenSize } from '@/hooks/useScreenSize'
 
 export const Cube: React.FC = () => {
   const cubeRef = useRef<HTMLDivElement>(null)
   const [isInitialAnimationDone, setIsInitialAnimationDone] = useState(false)
+  const screenSize = useScreenSize()
+  const isMobile = screenSize === '--mobile'
 
   useEffect(() => {
     const cubeElement = cubeRef.current
@@ -59,6 +62,8 @@ export const Cube: React.FC = () => {
       }
     }
   }, [isInitialAnimationDone])
+
+  if (isMobile) return null
 
   return (
     <div className="scene">

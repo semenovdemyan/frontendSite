@@ -4,6 +4,7 @@
   height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .sidebar {
@@ -52,7 +53,6 @@
   background-position: center;
   background-size: cover;
 }
-
 
 .loadingOverlay {
   position: absolute;
