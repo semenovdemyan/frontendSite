@@ -22,15 +22,13 @@ export const Header: FC = () => {
   }, [pathname, isMobile, isHome])
 
   return (
-    <div className={styles.header__wrapper}>
+    <div
+      className={`${styles.header__wrapper} ${
+        active ? styles['header__wrapper--active'] : ''
+      }`}
+    >
       <header
-        className={styles.header}
-        style={{
-          transform: active
-            ? 'translateY(55vh) scale(0.8)'
-            : 'translateY(0) scale(1)',
-          transition: 'transform 0.9s ease',
-        }}
+        className={`${styles.header} ${active ? styles['header--active'] : ''}`}
       >
         <nav className={styles.header__nav}>
           <Button label="ME" repeatLabelCount={9} href="/about" />

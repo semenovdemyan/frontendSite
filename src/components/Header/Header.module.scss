@@ -1,10 +1,16 @@
 /* Основные стили */
 .header__wrapper {
-  position: relative;
+  position: absolute;
   display: flex;
-  // height: 100vh;
+  min-height: 50px;
   width: 100vw;
+  margin: auto;
   pointer-events: none;
+}
+
+.header__wrapper--active {
+  margin: auto 0 0;
+  transition: all 0.6s ease;
 }
 
 .header {
@@ -16,10 +22,10 @@
   flex: 1 1;
   bottom: auto;
   opacity: 1;
-  transform: translateY(0) scale(1);
-  transition: all 0.9s ease;
-  &__active {
-    transform: translateY(90vh) scale(0.8);
+  transform: scale(1);
+  transition: all 0.6s ease;
+  &--active {
+    transform: scale(0.6);
     .header__nav {
       margin: 0 auto;
     }
@@ -31,8 +37,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 38vh auto;
-  bottom: auto;
+  margin: auto auto;
+  // bottom: 0;
+  align-items: center;
 }
 // .header__container {
 

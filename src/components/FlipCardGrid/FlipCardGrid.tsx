@@ -1,6 +1,4 @@
-import React from 'react'
 import styles from './FlipCardGrid.module.scss'
-
 interface CardData {
   id: number
   imageUrl: string
