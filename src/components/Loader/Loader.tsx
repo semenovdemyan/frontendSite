@@ -4,7 +4,7 @@ export const Loader: React.FC = () => {
   return (
     <div className={styles.loader}>
       <div className={styles.spinner}></div>
-      <p>Loading...</p>
+      <p style={{ color: '#FFF', fontSize: '60px' }}>Loading...</p>
     </div>
   )
 }

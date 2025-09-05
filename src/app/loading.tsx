@@ -1,5 +1,3 @@
-import { Loader } from '@/components/Loader/Loader';
-
 export default function Loading() {
-  return <Loader />;
+  return <p style={{ color: '#FFF', fontSize: '60px' }}>Loading...</p>
 }
