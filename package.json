@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "tsc -b && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "push": "git add . && git commit -m \"update\" && git push",
     "open-github-pages": "npx open-cli https://semenovdemyan.github.io/semenoff.dev/"
   },
