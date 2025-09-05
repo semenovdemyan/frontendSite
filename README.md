@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## ToDo
+1. Добавить 3D анимацию во вкладке /about
+2. Подумать над анимацией куба на тач устройствах
+3. Реализовать GSAP слайдер карточек работ
+4. поработать над 3D моделью (AccuRig), WebGL(Three.js) и постараться сжать файл с персонажем
+5. Адаптив под тач и мобилку
+6. Скопипастить со старого проекта стили ссылок для вкладки /contacts
+7. (*опционально) Сделать валидную форму обратной связи, интегрировать её с почтовым клиентом и telegram-ботом
