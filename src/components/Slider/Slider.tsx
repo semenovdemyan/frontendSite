@@ -1,5 +1,5 @@
 'use client'
-
+import { ScrollIcon } from '@/components/ScrollIcon/ScrollIcon'
 import React, { useEffect, useRef, useCallback } from 'react'
 import styles from './Slider.module.scss'
 
@@ -114,6 +114,9 @@ export const Slider: React.FC<SliderProps> = ({ images }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.icon}>
+        <ScrollIcon text="Swipe" dir="down" />
+      </div>
       <div className={styles.sidebar} ref={sidebarRef}>
         {slidesData.map(({ title, subtitle, bgGradient }, i) => (
           <div

@@ -61,10 +61,18 @@
   width: 100%;
   height: 100%;
   background: #000;
-  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
   color: #fff;
+}
+
+.icon {
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100vw;
+  min-height: 200px;
+  z-index: 5000;
 }

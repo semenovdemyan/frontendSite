@@ -6,6 +6,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+  z-index: 5000;
 }
 
 .icon__wrapper {
@@ -75,4 +76,8 @@
 
 .left {
   --rotate: 90deg;
+}
+
+.hidden {
+  display: none;
 }

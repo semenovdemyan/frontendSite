@@ -1,9 +1,8 @@
 'use client'
-
 import React, { useEffect, useRef } from 'react'
 import styles from './MarqueeCross.module.scss'
 
-const MarqueeCross: React.FC = () => {
+export const MarqueeCross: React.FC = () => {
   const marquee1Ref = useRef<HTMLDivElement>(null)
   const marquee2Ref = useRef<HTMLDivElement>(null)
   const itemCount = 20
@@ -13,18 +12,16 @@ const MarqueeCross: React.FC = () => {
     const marquee1 = marquee1Ref.current
     const marquee2 = marquee2Ref.current
 
-    if (!marquee1 || !marquee2) return
+    if (!marquee1 || !marquee2) return null
 
-    // временно вставим один элемент, чтобы замерить ширину
     marquee1.innerHTML = '<span>ПРИВЕТ</span>'
     const span = marquee1.querySelector('span')
-    if (!span) return
+    if (!span) return null
 
     const spanWidth = span.offsetWidth + 10
     const blockWidth = spanWidth * itemCount
     const totalWidth = blockWidth * 2
 
-    // вставляем повторенный контент
     marquee1.innerHTML = content + content
     marquee2.innerHTML = content + content
 
@@ -63,5 +60,3 @@ const MarqueeCross: React.FC = () => {
     </div>
   )
 }
-
-export default MarqueeCross

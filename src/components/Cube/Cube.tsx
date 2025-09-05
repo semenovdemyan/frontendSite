@@ -12,7 +12,6 @@ export const Cube: React.FC = () => {
 
   useEffect(() => {
     const cubeElement = cubeRef.current
-
     if (cubeElement) {
       gsap.set(cubeElement, {
         x: window.innerWidth - 200,
@@ -35,31 +34,37 @@ export const Cube: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (isInitialAnimationDone) {
-      const handleMouseMove = (event: MouseEvent) => {
-        if (cubeRef.current) {
-          const { innerWidth, innerHeight } = window
-          const { clientX, clientY } = event
+    if (!isInitialAnimationDone) return
+    let ticking = false
 
-          const xOffset = (clientX - innerWidth / 2) / innerWidth
-          const yOffset = (clientY - innerHeight / 2) / innerHeight
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (cubeRef.current) {
+            const { innerWidth, innerHeight } = window
+            const { clientX, clientY } = event
 
-          gsap.to(cubeRef.current, {
-            x: -xOffset * 270,
-            y: -yOffset * 270,
-            rotationX: yOffset * 145,
-            rotationY: xOffset * 145,
-            duration: 0.8,
-            ease: 'power2.out',
-          })
-        }
+            const xOffset = (clientX - innerWidth / 2) / innerWidth
+            const yOffset = (clientY - innerHeight / 2) / innerHeight
+
+            gsap.to(cubeRef.current, {
+              x: -xOffset * 270,
+              y: -yOffset * 270,
+              rotationX: yOffset * 150,
+              rotationY: xOffset * 150,
+              duration: 0.8,
+              ease: 'power3.out',
+            })
+          }
+          ticking = false
+        })
+        ticking = true
       }
+    }
 
-      window.addEventListener('mousemove', handleMouseMove)
-
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove)
-      }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [isInitialAnimationDone])
 
