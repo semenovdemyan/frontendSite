@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        style={{ background: 'transparent', height: '100vh', width: '100vw' }}
+      >
         <Header />
         <Cube />
         {children}

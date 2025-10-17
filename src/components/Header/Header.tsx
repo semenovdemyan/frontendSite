@@ -34,7 +34,7 @@ export const Header: FC = () => {
           <Button label="ME" repeatLabelCount={9} href="/about" />
           <Button label="MY WORKS" repeatLabelCount={9} href="/works" />
           <Button label="MY SKILLS" repeatLabelCount={9} href="/skills" />
-          <Button label="CONTACTS" repeatLabelCount={9} href="/contacts" />
+          <Button label="MY CONTACTS" repeatLabelCount={9} href="/contacts" />
         </nav>
       </header>
     </div>
