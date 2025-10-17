@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './RadioSlider.module.css';
+import styles from './RadioSlider.module.scss';
 
 interface RadioSliderProps {
   lang?: 'en' | 'ru';

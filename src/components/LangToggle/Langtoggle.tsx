@@ -1,4 +1,4 @@
-import styles from './LangToggle.module.css';
+import styles from './LangToggle.module.scss';
 
 interface LangToggleProps {
   lang: 'en' | 'ru';

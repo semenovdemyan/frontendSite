@@ -1,6 +1,6 @@
 // 'use client'
 // import React, { useState } from 'react';
-// import styles from './ContactForm.module.css';
+// import styles from './ContactForm.module.scss';
 // import { Button } from '../Button/Button';
 
 // interface ContactFormProps {

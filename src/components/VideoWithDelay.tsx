@@ -1,7 +1,7 @@
 // 'use client'
 // import React, { useEffect, useRef, useState } from 'react';
 // import videoUrl from '../assets/video/video.mp4';
-// import styles from '../App.module.css';
+// import styles from '../App.module.scss';
 // import { gsap } from 'gsap';
 
 // export const VideoWithDelay: React.FC = () => {
