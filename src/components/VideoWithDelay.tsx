@@ -1,6 +1,6 @@
 // 'use client'
 // import React, { useEffect, useRef, useState } from 'react';
-// import videoUrl from '../assets/video/video.mp4';
+// // import videoUrl from '../assets/video/video.mp4';
 // import styles from '../App.module.scss';
 // import { gsap } from 'gsap';
 
