@@ -6,7 +6,7 @@ export default function Page() {
       <p style={{ color: '#FFF', fontSize: '60px' }}>TEST</p>
       {/* <AnimatedBlobs /> */}
       <div>
-        <ScrollIcon text="Swipe" dir="right" />
+        <ScrollIcon text="" dir="right" />
       </div>
       <div style={{ marginTop: '200px' }}>
         <ScrollIcon text="Scroll" />
