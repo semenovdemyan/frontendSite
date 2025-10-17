@@ -7,10 +7,17 @@ import { useScreenSize } from '@/hooks/useScreenSize'
 export const Cube: React.FC = () => {
   const cubeRef = useRef<HTMLDivElement>(null)
   const [isInitialAnimationDone, setIsInitialAnimationDone] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   const screenSize = useScreenSize()
   const isMobile = screenSize === '--mobile'
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
     const cubeElement = cubeRef.current
     if (cubeElement) {
       gsap.set(cubeElement, {
@@ -31,10 +38,10 @@ export const Cube: React.FC = () => {
         initialAnimation.kill()
       }
     }
-  }, [])
+  }, [isClient])
 
   useEffect(() => {
-    if (!isInitialAnimationDone) return
+    if (!isInitialAnimationDone || !isClient) return
     let ticking = false
 
     const handleMouseMove = (event: MouseEvent) => {
@@ -66,9 +73,9 @@ export const Cube: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [isInitialAnimationDone])
+  }, [isInitialAnimationDone, isClient])
 
-  if (isMobile) return null
+  if (!isClient || isMobile) return null
 
   return (
     <div className="scene">

@@ -2,6 +2,7 @@
 
 import styles from './Button.module.scss'
 import React, { ReactNode } from 'react'
+import { useLoading } from '@/context/LoadingContext'
 import { useRouter } from 'next/navigation'
 
 interface ButtonProps {
@@ -26,10 +27,20 @@ export const Button: React.FC<ButtonProps> = ({
   repeatLabelCount = 6,
 }) => {
   const router = useRouter()
+  const { setNavigating } = useLoading()
 
   const handleClick = () => {
     if (onClick) onClick()
-    if (href) router.push(href)
+
+    if (href) {
+      // Запускаем навигационный лоадер
+      setNavigating(true)
+
+      // Навигация с небольшой задержкой
+      setTimeout(() => {
+        router.push(href)
+      }, 100)
+    }
   }
 
   return (

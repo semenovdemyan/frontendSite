@@ -2,6 +2,7 @@
 import styles from './ScrollIcon.module.scss'
 import { FC, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+
 interface ScrollIconProps {
   text?: string
   dir?: 'up' | 'down' | 'left' | 'right'
@@ -18,15 +19,55 @@ export const ScrollIcon: FC<ScrollIconProps> = ({ text, dir = 'down' }) => {
       : styles.left
 
   const iconRef = useRef<HTMLDivElement>(null)
+  const hasAnimatedRef = useRef(false)
 
   useEffect(() => {
-    if (iconRef.current) {
+    // Проверяем, что мы на клиенте и компонент еще не анимировался
+    if (!iconRef.current || hasAnimatedRef.current) return
 
-      const timer = setTimeout(() => {
-        gsap.to(iconRef.current, { opacity: 0, duration: 1 })
-      }, 8000)
+    const hideIcon = () => {
+      if (hasAnimatedRef.current) return
+      hasAnimatedRef.current = true
+      gsap.to(iconRef.current, { opacity: 0, duration: 1 })
+    }
 
-      return () => clearTimeout(timer)
+    // Обработчики событий
+    const handleWheel = () => {
+      hideIcon()
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        [
+          'ArrowUp',
+          'ArrowDown',
+          'ArrowLeft',
+          'ArrowRight',
+          'PageUp',
+          'PageDown',
+          'Home',
+          'End',
+          ' ',
+        ].includes(e.key)
+      ) {
+        hideIcon()
+      }
+    }
+
+    const handleTouchStart = () => {
+      hideIcon()
+    }
+
+    // Добавляем обработчики событий
+    window.addEventListener('wheel', handleWheel, { passive: true })
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+
+    // Очистка
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('touchstart', handleTouchStart)
     }
   }, [])
 

@@ -10,16 +10,38 @@ export const Header: FC = () => {
   const isHome = pathname === '/'
   const screenSize = useScreenSize()
   const isMobile = screenSize === '--mobile'
-
-  const [active, setActive] = useState(!isHome && !isMobile)
+  const [isClient, setIsClient] = useState(false)
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
     const timeout = setTimeout(() => {
       setActive(!isHome && !isMobile)
     }, 10)
 
     return () => clearTimeout(timeout)
-  }, [pathname, isMobile, isHome])
+  }, [pathname, isMobile, isHome, isClient])
+
+  // На сервере рендерим без активных классов
+  if (!isClient) {
+    return (
+      <div className={styles.header__wrapper}>
+        <header className={styles.header}>
+          <nav className={styles.header__nav}>
+            <Button label="ME" repeatLabelCount={9} href="/about" />
+            <Button label="MY WORKS" repeatLabelCount={9} href="/works" />
+            <Button label="MY SKILLS" repeatLabelCount={9} href="/skills" />
+            <Button label="MY CONTACTS" repeatLabelCount={9} href="/contacts" />
+          </nav>
+        </header>
+      </div>
+    )
+  }
 
   return (
     <div
