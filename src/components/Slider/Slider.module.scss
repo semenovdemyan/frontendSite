@@ -2,6 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: row-reverse;
@@ -20,6 +21,7 @@
 
 .sidebarSlide {
   height: 100vh;
+  height: 100dvh;
   padding: 40px;
   color: #fff;
   display: flex;
@@ -50,6 +52,7 @@
 
 .mainSlideItem {
   height: 100vh;
+  height: 100dvh;
   background-position: center;
   background-size: cover;
 }

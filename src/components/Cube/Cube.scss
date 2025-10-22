@@ -11,6 +11,7 @@ $cube-size: 100px;
   perspective: 3200px;
   width: 800px;
   height: 100vh;
+  height: 100dvh;
   z-index: 5;
 
   @media screen and (max-width: 450px) {

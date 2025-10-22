@@ -44,6 +44,7 @@ html {
 .app__wrapper {
   width: 100vw;
   max-height: 100vh;
+  max-height: 100dvh;
   overflow: hidden;
 }
 
@@ -54,7 +55,7 @@ html {
   z-index: -1;
   object-fit: cover;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
   .video {
     height: 120vh;
   }
@@ -63,4 +64,4 @@ html {
       display: none;
     }
   }
-}
+} */
