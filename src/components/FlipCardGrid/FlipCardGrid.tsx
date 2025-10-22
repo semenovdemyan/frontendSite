@@ -68,7 +68,7 @@ const cards: CardData[] = [
 
 export const FlipCardGrid: React.FC = () => {
   return (
-    <div className={styles.cardGrid}>
+    <div className={`${styles.fullScreen}, ${styles.cardGrid}, scrollable`}>
       {cards.map((card) => (
         <div key={card.id} className={styles.flipCard}>
           <div className={styles.flipCardInner}>
