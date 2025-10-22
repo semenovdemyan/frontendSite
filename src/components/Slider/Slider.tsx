@@ -28,6 +28,26 @@ const slidesData = [
     subtitle: 'Love, death & robots',
     bgGradient: 'linear-gradient(220.16deg, #ffe101 -8%, #f39102 138%)',
   },
+  {
+    title: 'Snow in the desert',
+    subtitle: 'Love, death & robots',
+    bgGradient: 'linear-gradient(229.99deg, #11dee9 -26%, #017e8b 145%)',
+  },
+  {
+    title: 'Life Hutch',
+    subtitle: 'Love, death & robots',
+    bgGradient: 'linear-gradient(215.32deg, #f90306 -1%, #9e0706 124%)',
+  },
+  {
+    title: 'Zima Blue',
+    subtitle: 'Love, death & robots',
+    bgGradient: 'linear-gradient(221.87deg, #8308ea 1%, #5305af 128%)',
+  },
+  {
+    title: 'Automated Customer Service',
+    subtitle: 'Love, death & robots',
+    bgGradient: 'linear-gradient(220.16deg, #ffe101 -8%, #f39102 138%)',
+  },
 ]
 
 export const Slider: React.FC<SliderProps> = ({ images }) => {
@@ -113,11 +133,11 @@ export const Slider: React.FC<SliderProps> = ({ images }) => {
   }, [changeSlide])
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container}, ${styles.scrollable}`}>
       <div className={styles.icon}>
         <ScrollIcon text="Swipe" dir="down" />
       </div>
-      <div className={styles.sidebar} ref={sidebarRef}>
+      <div className={`${styles.sidebar}`} ref={sidebarRef}>
         {slidesData.map(({ title, subtitle, bgGradient }, i) => (
           <div
             key={i}

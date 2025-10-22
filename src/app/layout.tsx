@@ -17,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        style={{ background: 'transparent', height: '100vh', width: '100vw' }}
-      >
+      <body className="body">
         <LoadingProvider>
           <Loader />
           <NavLoader />

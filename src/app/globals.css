@@ -21,6 +21,20 @@ html {
   height: 100%;
 }
 
+.body {
+  overscroll-behavior: none; /* отключает "bounce" и pull-to-refresh */
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  width: '100vw';
+}
+
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* плавный скролл на iOS */
+  overscroll-behavior: contain; /* не передаёт скролл родителю */
+}
+
 .app__container {
   width: 100%;
   color: var(--color2);
