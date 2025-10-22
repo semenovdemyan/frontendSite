@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import styles from './Loader.module.scss'
 
 export const Loader: React.FC = () => {
   const [progress, setProgress] = useState(0)
@@ -53,73 +54,19 @@ export const Loader: React.FC = () => {
   }, [progress])
 
   return (
-    <div
-      ref={loaderRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100dvh',
-        backgroundColor: '#000',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 9999,
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        {/* Логотип */}
-        <div
-          style={{
-            fontSize: '3rem',
-            fontWeight: 'bold',
-            marginBottom: '2rem',
-            color: '#FFF',
-          }}
-        >
-          Your Logo
-        </div>
+    <div ref={loaderRef} className={styles.loaderOverlay}>
+      <div className={styles.content}>
+        <div className={styles.title}>SEMENOV DEMYAN</div>
 
-        {/* Текст Loading */}
-        <p
-          style={{
-            color: '#FFF',
-            fontSize: '1.5rem',
-            marginBottom: '2rem',
-          }}
-        >
-          Loading...
-        </p>
+        <p className={styles.loadingText}>Loading...</p>
 
         {/* Прогресс-бар */}
-        <div
-          style={{
-            width: '300px',
-            height: '2px',
-            backgroundColor: '#333',
-            borderRadius: '1px',
-            overflow: 'hidden',
-            marginBottom: '1rem',
-          }}
-        >
-          <div
-            ref={progressRef}
-            style={{
-              height: '100%',
-              backgroundColor: '#FFF',
-              width: '0%',
-            }}
-          />
+        <div className={styles.progressBar}>
+          <div ref={progressRef} className={styles.progressFill} />
         </div>
 
         {/* Проценты */}
-        <div
-          style={{
-            color: '#FFF',
-            fontSize: '1.25rem',
-          }}
-        >
+        <div className={styles.percentage}>
           <span ref={numberRef}>0</span>
           <span>%</span>
         </div>

@@ -133,31 +133,33 @@ export const Slider: React.FC<SliderProps> = ({ images }) => {
   }, [changeSlide])
 
   return (
-    <div className={`${styles.container}, ${styles.scrollable}`}>
+    <div className={styles.container}>
       <div className={styles.icon}>
         <ScrollIcon text="Swipe" dir="down" />
       </div>
-      <div className={`${styles.sidebar}`} ref={sidebarRef}>
-        {slidesData.map(({ title, subtitle, bgGradient }, i) => (
-          <div
-            key={i}
-            style={{ background: bgGradient }}
-            className={styles.sidebarSlide}
-          >
-            <h1>{title}</h1>
-            <p>{subtitle}</p>
-          </div>
-        ))}
-      </div>
+      <div className="scrollable">
+        <div className={`${styles.sidebar}`} ref={sidebarRef}>
+          {slidesData.map(({ title, subtitle, bgGradient }, i) => (
+            <div
+              key={i}
+              style={{ background: bgGradient }}
+              className={styles.sidebarSlide}
+            >
+              <h1>{title}</h1>
+              <p>{subtitle}</p>
+            </div>
+          ))}
+        </div>
 
-      <div className={styles.mainSlide} ref={mainSlideRef}>
-        {images.map((url, i) => (
-          <div
-            key={i}
-            style={{ backgroundImage: `url(${url})` }}
-            className={styles.mainSlideItem}
-          />
-        ))}
+        <div className={styles.mainSlide} ref={mainSlideRef}>
+          {images.map((url, i) => (
+            <div
+              key={i}
+              style={{ backgroundImage: `url(${url})` }}
+              className={styles.mainSlideItem}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

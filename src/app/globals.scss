@@ -13,16 +13,14 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
-html {
+.html {
   background-color: var(--color1);
   overflow: hidden;
   height: 100vh;
   height: 100dvh;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
-body {
+.body {
   overscroll-behavior: none;
   height: 100vh;
   height: 100dvh;
@@ -31,14 +29,6 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.scrollable {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
 }
 
 .app__container {
@@ -62,14 +52,30 @@ body {
   object-fit: cover;
 }
 
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+// На этот:
 .full-screen,
 .fullScreen {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
+  margin: 0;
+  padding: 0;
 }
+
+// .safe-area-top {
+// height: env(safe-area-inset-top);
+// background: transparent;
+// }
+
+// .safe-area-bottom {
+// padding-bottom: env(safe-area-inset-bottom);
+// }
 
 /* @media (min-width: 768px) and (max-width: 1024px) {
   .video {
