@@ -129,7 +129,7 @@ export const NavLoader: React.FC = () => {
           top: 0,
           left: 0,
           width: '100%',
-          height: '100%',
+          height: '100dvh',
           backgroundColor: 'rgba(0, 0, 0, 0.8)',
           backdropFilter: 'blur(5px)',
         }}

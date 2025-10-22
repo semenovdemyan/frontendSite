@@ -75,8 +75,7 @@ export default function Moxie() {
           height={'auto'}
           preload="none"
           style={{
-            width: '100%',
-            height: '100%',
+            height: '100dvh',
             objectFit: 'cover',
           }}
           tracks={[
