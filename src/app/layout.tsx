@@ -23,7 +23,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
       </head>
-      <body className="body">
+      <body className="body full-screen">
         <LoadingProvider>
           <Loader />
           <NavLoader />

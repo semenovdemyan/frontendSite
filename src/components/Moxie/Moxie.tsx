@@ -62,7 +62,7 @@ export default function Moxie() {
           zIndex: 999999,
           top: 0,
           width: '100vw',
-          height: '100vh',
+          height: '100dvh',
         }}
       >
         <Video

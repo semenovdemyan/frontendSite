@@ -4,9 +4,6 @@
   --color2: #d1ffd4c7;
   --color3: #d1ffd4;
   --color2-rgb: 52, 222, 122;
-  /* --color2-active: #92d896c7; */
-  /* --color3: #0efcd4a1; */
-  /* --color3-active: #92d896c7; */
 }
 
 * {
@@ -15,40 +12,38 @@
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
 }
+
 html {
   background-color: var(--color1);
   overflow: hidden;
   height: 100vh;
   height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-.body {
-  overscroll-behavior: none; /* отключает "bounce" и pull-to-refresh */
-  width: 100vw;
+body {
+  overscroll-behavior: none;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
   background: transparent;
-}
-html,
-body {
-  padding-top: constant(safe-area-inset-top);
-  padding-bottom: constant(safe-area-inset-bottom);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
-  height: 100vh; /* fallback */
-  height: 100dvh;
 }
+
 .scrollable {
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* плавный скролл на iOS */
-  overscroll-behavior: contain; /* не передаёт скролл родителю */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .app__container {
   width: 100%;
   color: var(--color2);
-  height: 100vh;
   height: 100dvh;
 }
 
@@ -66,6 +61,15 @@ body {
   z-index: -1;
   object-fit: cover;
 }
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 /* @media (min-width: 768px) and (max-width: 1024px) {
   .video {
     height: 120vh;
