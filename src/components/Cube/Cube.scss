@@ -12,7 +12,7 @@ $cube-size: 100px;
   width: 800px;
   height: 100vh;
   height: 100dvh;
-  z-index: 5;
+  z-index: 59999999999;
 
   @media screen and (max-width: 450px) {
     display: none;
