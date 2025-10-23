@@ -2,6 +2,13 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import styles from './Loader.module.scss'
+import { Comforter } from 'next/font/google'
+
+const comforterFont = Comforter({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400'],
+  variable: '--font-comforter',
+})
 
 export const Loader: React.FC = () => {
   const [progress, setProgress] = useState(0)
@@ -43,7 +50,7 @@ export const Loader: React.FC = () => {
       const tl = gsap.timeline()
       tl.to(loaderRef.current, {
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.inOut',
       })
       tl.to(loaderRef.current, {
@@ -56,19 +63,19 @@ export const Loader: React.FC = () => {
   return (
     <div ref={loaderRef} className={styles.loaderOverlay}>
       <div className={styles.content}>
-        <div className={styles.title}>SEMENOV DEMYAN</div>
-
-        <p className={styles.loadingText}>Loading...</p>
-
+        {/* Проценты */}
+        <div className={`${styles.percentage}`}>
+          <span className={`${comforterFont.className}`} ref={numberRef}>
+            0
+          </span>
+          <span className={`${comforterFont.className}`}>%</span>
+        </div>
         {/* Прогресс-бар */}
         <div className={styles.progressBar}>
           <div ref={progressRef} className={styles.progressFill} />
         </div>
-
-        {/* Проценты */}
-        <div className={styles.percentage}>
-          <span ref={numberRef}>0</span>
-          <span>%</span>
+        <div className={`${styles.title} ${comforterFont.className}`}>
+          Semenov&nbsp;&nbsp;Demian
         </div>
       </div>
     </div>

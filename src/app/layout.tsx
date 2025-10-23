@@ -5,7 +5,6 @@ import { Header } from '@/components/Header/Header'
 import { LoadingProvider } from '@/context/LoadingContext'
 import { Loader } from '@/components/Loader/Loader'
 import { NavLoader } from '@/components/Loader/NavLoader'
-// import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Web-developer Portfolio',
@@ -38,6 +37,7 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
+        <link rel="" href="/fonts/" />
       </head>
       <body className="body full-screen">
         <LoadingProvider>

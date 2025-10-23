@@ -1,27 +1,23 @@
-.loader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
-  background-color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
 .loaderOverlay {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100vw;
-  height: 100dvh;
-  background-color: #000;
+  // height: 100dvh;
+  height: 100vh;
+  background-color: var(--color1);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  z-index: 9999;
+  z-index: 9999999;
+  inset: 0;
+  padding: 0;
+  margin: 0;
+  clip-path: inset(0);
+  padding-top: calc(0px - env(safe-area-inset-top));
+  padding-bottom: calc(0px - env(safe-area-inset-bottom));
+  padding-left: calc(0px - env(safe-area-inset-left));
+  padding-right: calc(0px - env(safe-area-inset-right));
+  bottom: 60px;
 }
 
 .content {
@@ -29,34 +25,38 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
-  margin-bottom: 2rem;
-  color: #fff;
+  // margin-bottom: 2rem;
+  color: var(--color2);
+  text-shadow: 5px 5px 10px var(--color2);
 }
 
-.loadingText {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
+// .loadingText {
+// color: var(--color2);
+// font-size: 1.5rem;
+// margin-bottom: 2rem;
+// }
 
 .progressBar {
-  width: 300px;
-  height: 2px;
-  background-color: #333;
-  border-radius: 1px;
+  width: 435px;
+  height: 3px;
+  background-color: var(--color1-active);
+  border-radius: 2px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  // margin-bottom: 4rem;
 }
 
 .progressFill {
   height: 100%;
-  background-color: #fff;
+  background-color: var(--color2);
   width: 0%; // будет анимироваться через GSAP
 }
 
 .percentage {
-  color: #fff;
-  font-size: 1.25rem;
+  color: var(--color2);
+  font-size: 13.25rem;
+  line-height: 0.8;
+  display: flex;
+  justify-content: flex-end;
 }
