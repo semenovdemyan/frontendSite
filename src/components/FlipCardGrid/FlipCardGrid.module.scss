@@ -1,15 +1,11 @@
 .cardGrid {
   display: flex;
-  flex: 1 1;
-  justify-content: space-around;
-  row-gap: 5vw;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+  gap: 20px; /* Используем gap для управления промежутками */
   padding: 20px;
-  height: 100vh;
-  height: 100dvh;
-  width: 100vw;
-  overflow-y: scroll;
-  align-items: center;
+  align-items: stretch; /* Чтобы все карточки имели одинаковую высоту, если это нужно */
+  width: 100%; /* Занимаем всю доступную ширину контейнера */
+  /* Убраны фиксированные высоты и overflow, чтобы позволить контенту диктовать высоту */
 }
 
 .flipCard {
